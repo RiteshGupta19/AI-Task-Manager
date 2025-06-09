@@ -6,6 +6,7 @@ WORKDIR /app
 
 # Copy package files first
 COPY package*.json ./
+COPY services/ServiceAccountKey.json ./services/ServiceAccountKey.json
 
 # Install dependencies
 RUN npm install
