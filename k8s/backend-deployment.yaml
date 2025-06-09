@@ -19,17 +19,37 @@ spec:
           imagePullPolicy: Always
           resources:
             requests:
-              cpu: 100m
-              memory: 128Mi
+              cpu: "100m"
+              memory: "128Mi"
             limits:
-              cpu: 200m
-              memory: 256Mi
+              cpu: "200m"
+              memory: "256Mi"
           ports:
             - containerPort: 5000
           env:
+            - name: PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: backend-config
+                  key: PORT
+            - name: ACCESS_TOKEN_SECRET
+              valueFrom:
+                configMapKeyRef:
+                  name: backend-config
+                  key: ACCESS_TOKEN_SECRET
+            - name: REFRESH_TOKEN_SECRET
+              valueFrom:
+                configMapKeyRef:
+                  name: backend-config
+                  key: REFRESH_TOKEN_SECRET
+            - name: OPEN_ROUTER_API_KEY
+              valueFrom:
+                configMapKeyRef:
+                  name: backend-config
+                  key: OPEN_ROUTER_API_KEY
             - name: MONGO_URI
               valueFrom:
-                secretKeyRef:     # or configMapKeyRef if you're using ConfigMap
+                secretKeyRef:
                   name: mongo-secret
                   key: MONGO_URI
           livenessProbe:
@@ -56,6 +76,7 @@ spec:
     - port: 5000
       targetPort: 5000
   type: LoadBalancer
+
 
 
 # apiVersion: apps/v1
