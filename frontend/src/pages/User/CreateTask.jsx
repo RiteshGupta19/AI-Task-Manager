@@ -238,7 +238,7 @@ const CreateTask = () => {
           )}
 
           <FormControl fullWidth required>
-            <InputLabel size="small" required>Priority</InputLabel>
+            <InputLabel size="small" required>Priority </InputLabel>
             <Select
               size="small"
               value={formData.priorityId}
