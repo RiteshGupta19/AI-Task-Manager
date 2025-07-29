@@ -6,7 +6,7 @@ COPY package*.json ./
 RUN npm install --production && npm cache clean --force
 
 COPY . .  
-RUN npm run build
+RUN npm run build 
  
 # Stage 2: Serve
 FROM nginx:alpine
