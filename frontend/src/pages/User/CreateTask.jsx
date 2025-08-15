@@ -36,7 +36,7 @@ const CreateTask = () => {
       setCustomTask('');
     }
   };
-
+ 
   const handleSuggest = async () => {
     setLoading(true);  // <-- start loading
     try {
