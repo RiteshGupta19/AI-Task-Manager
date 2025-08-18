@@ -172,7 +172,7 @@ export default function Header() {
                       borderColor: '#13AA52',
                     },
                   }}>
-                  Sign Up
+                  Sign Up 
                 </Button>
               </NavLink>
             </>
